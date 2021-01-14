@@ -13,7 +13,7 @@ const PORT = 4000;
 //middlewares config
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:'https://ha-ppypet.netlify.app',
     credentials:true
 }));
 app.use(morgan("dev"));
