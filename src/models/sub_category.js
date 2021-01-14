@@ -1,7 +1,7 @@
 
 
-module.exports = (sequlize, type) => {
-    return sequlize.define("sub_category", {
+module.exports = (sequelize, type) => {
+    return sequelize.define("sub_category", {
         idsub_category: {
             type: type.INTEGER,
             autoIncrement: true,

@@ -1,7 +1,7 @@
 
 
-module.exports = (sequlize, type) => {
-    return sequlize.define("sale", {
+module.exports = (sequelize, type) => {
+    return sequelize.define("sale", {
         idsale: {
             type: type.INTEGER,
             autoIncrement: true,

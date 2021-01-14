@@ -1,8 +1,8 @@
 
 
 
-module.exports = (sequlize, type) => {
-    return sequlize.define("sale_detail", {
+module.exports = (sequelize, type) => {
+    return sequelize.define("sale_detail", {
         idsale_detail: {
             type: type.INTEGER,
             autoIncrement: true,
