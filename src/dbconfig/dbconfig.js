@@ -10,7 +10,7 @@ const serviceTypeModel = require('../models/service_type');
 const subCategoryModel = require('../models/sub_category');
 
 //credentials
-const DB = require('../dbCredentials');
+const DB = require('../dbcredentials');
 const db = {}; //para las fututras sentencias
 
 const sequelize = new Sequelize(
