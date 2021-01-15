@@ -3,7 +3,7 @@ const Bluebird = require('bluebird');
 
 
 const authenticate = (req, res, next) => new Bluebird((resolve, reject) => {
-    passport.authenticate('local', (err, user) => {
+    passport.authenticate('local',{session:true}, (err, user) => {
         if (err) {
             return reject(err);
         }

@@ -34,6 +34,7 @@ app.use(session({
     resave: false,
     store:sequelizeSessionStore,
     saveUninitialized: false,
+    cookie:{secure:true}
 }));
 
 
