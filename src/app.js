@@ -29,7 +29,7 @@ const sequelizeSessionStore = new SessionStore({
 
 
 app.use(session({
-    key:'asdfasdfnclanspp',
+    proxy:true,
     secret:"the secrete madafaka secret",
     resave: false,
     store:sequelizeSessionStore,
