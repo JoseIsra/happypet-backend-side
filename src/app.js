@@ -6,6 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const SessionStore =  require('express-session-sequelize')(session.Store);
 const app = express();
+require('./passport/passport')(passport);
 require('./dbconfig/dbconfig');
 
 const PORT = 4000;
@@ -33,13 +34,12 @@ app.use(session({
     resave: false,
     store:sequelizeSessionStore,
     saveUninitialized: false,
-    cookie: { secure: true }
 }));
 
 
 app.use(passport.initialize());
 app.use(passport.session());
-require('./passport/passport')(passport);
+
 //routes
 app.use('/api', require('./routes/api'));
 
