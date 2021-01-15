@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
+
 const session = require('express-session');
 const passport = require('passport');
 const app = express();
@@ -21,11 +21,12 @@ app.use(morgan("dev"));
 
 app.use(session({
     secret:"the secrete madafaka secret",
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: true }
 }));
 
-app.use(cookieParser("secretecode"));
+
 app.use(passport.initialize());
 app.use(passport.session());
 require('./passport/passport')(passport);
