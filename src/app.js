@@ -1,15 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const app = express();
 require('./dbconfig/dbconfig');
-require('./passport/passport')(passport);
+
 const PORT = 4000;
 
 //bodyparser
-
+app.use(express.urlencoded({extended:false}));
 //middlewares config
 app.use(express.json());
 app.use(cors({
@@ -24,9 +25,10 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use(cookieParser("secretecode"));
 app.use(passport.initialize());
 app.use(passport.session());
-
+require('./passport/passport')(passport);
 //routes
 app.use('/api', require('./routes/api'));
 
