@@ -5,7 +5,8 @@ module.exports = function(passport) {
 
     passport.use( new LocalStrategy({
         usernameField: 'cli_email',
-        passwordField: 'cli_password'
+        passwordField: 'cli_password',
+        session:true
     }, async(cli_email, cli_password, done)=> {
         const client = await model.client.findOne({
             where:{

@@ -10,6 +10,7 @@ require('./dbconfig/dbconfig');
 const PORT = 4000;
 
 //bodyparser
+
 app.use(express.urlencoded({extended:false}));
 //middlewares config
 app.use(express.json());
