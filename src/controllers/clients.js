@@ -44,7 +44,7 @@ module.exports = {
 
     },
     getUser:(req, res)=>{
-        res.send(req.user);
+        res.send(req.user);res.end();
     },
     getBills: async(req, res)=>{
         try{
