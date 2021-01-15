@@ -19,7 +19,13 @@ const sequelize = new Sequelize(
     DB.password,
     {
         host: DB.host,
-        dialect: 'mysql'
+        dialect: 'mysql',
+        pool: {
+            max: 100,
+            min: 0,
+            acquire: 30000,
+            idle: 10000
+        }
     });
 
 const Pet = petModel(sequelize, Sequelize);
@@ -50,7 +56,8 @@ const model = {
     'appointment':Appointment,
     'serviceType':ServiceType,
     'subCategory':SubCategory,
-    'statement':db
+    'statement':db,
+    'seque':sequelize
 
 };
 module.exports = model;

@@ -39,7 +39,7 @@ router.get('/dashinfo', productsController.sendDashInfo);
 
 //routes para el cliente
 router.post('/register', clientController.saveClient);
-router.post('/login',clientController.login);
+router.post('/login',require('../controllers/signin'));
 router.post('/appointment',clientController.saveAppointment);
 router.get('/user', clientController.getUser);
 router.get('/bills',clientController.getBills);

@@ -29,20 +29,6 @@ module.exports = {
     }catch(err){
         console.log(err);
     }},
-    login: (req, res, next )=>{
-        passport.authenticate('local', (err,user)=> {
-            if(err) throw err;
-            if(!user){
-                res.send("Datos inválidos");
-            }
-            else{
-                req.logIn(user , (err) => {
-                    res.send("usuario logeado");
-                })
-            }
-        })(req, res, next);
-
-    },
     getUser:(req, res)=>{
         res.send(req.user);res.end();
     },
