@@ -41,7 +41,6 @@ router.get('/dashinfo', productsController.sendDashInfo);
 router.post('/register', clientController.saveClient);
 router.post('/login',clientController.loginUser);
 router.post('/appointment',clientController.saveAppointment);
-router.get('/user', clientController.getUser);
 router.get('/bills/:id',clientController.getBills);
 router.get('/bill/:idBill', clientController.getBillData);
 
