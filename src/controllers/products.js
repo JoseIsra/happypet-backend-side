@@ -31,7 +31,7 @@ module.exports = {
             res.send(productJson);res.end();
     },
     buyingInfo:async(req, res) =>{
-            const {basket , total} = req.body;
+            const {id, basket , total} = req.body;
                 //boleta random
                 let randomBill = Math.random().toString(36).substring(2,12); 
                 //autenticar boleta random para guardar en sale_details
@@ -42,7 +42,7 @@ module.exports = {
                 });
                 if(!sale){
                     await model.sale.create({
-                        idclient:req.user.idclient,
+                        idclient:id,
                         bill_number:randomBill,
                         total:total,
                         date:new Date()

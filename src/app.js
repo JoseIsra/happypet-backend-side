@@ -3,10 +3,10 @@ const morgan = require('morgan');
 const cors = require('cors');
 const model = require('./dbconfig/dbconfig');
 const session = require('express-session');
-const passport = require('passport');
+//const passport = require('passport');
 const SessionStore =  require('express-session-sequelize')(session.Store);
 const app = express();
-require('./passport/passport')(passport);
+//require('./passport/passport')(passport);
 require('./dbconfig/dbconfig');
 
 const PORT = 4000;
@@ -42,8 +42,8 @@ app.use(session({
 }));
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 //routes
 app.use('/api', require('./routes/api'));
