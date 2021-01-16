@@ -2,7 +2,7 @@ const passport = require('passport');
 const model = require('../dbconfig/dbconfig');
 const bcrypt = require('bcryptjs');
 const { QueryTypes } = require('sequelize');
-const { response } = require('express');
+
 
 
 module.exports = {
@@ -29,6 +29,19 @@ module.exports = {
     }catch(err){
         console.log(err);
     }},
+    loginUser:(req, res)=>{
+        passport.authenticate("local", (err, user, info) => {
+            if (err) throw err;
+            if (!user) res.send("Datos invalidos");
+            else {
+                req.logIn(user, (err) => {
+                    if (err) throw err;
+                    res.send(req.user);
+                    console.log(req.user);
+                });
+            }
+        })(req, res, next);
+    },
     getUser:(req, res)=>{
         res.send(req.user);res.end();
     },
