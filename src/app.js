@@ -29,13 +29,14 @@ const sequelizeSessionStore = new SessionStore({
 
 
 app.use(session({
+    name:'asecreteicanttell',
     proxy:true,
     secret:"the secrete madafaka secret",
     resave: false,
     store:sequelizeSessionStore,
     saveUninitialized: false,
     cookie:{secure:true,
-    sameSite:false,
+    sameSite:true,
     maxAge: 60 * 60 * 1000
 }
 }));
